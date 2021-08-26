@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToolService } from './services/tool.service';
 import { ToolItem } from './models/tools';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { PAGE_TITLE } from 'src/globals';
 
@@ -16,10 +16,11 @@ export class AppComponent implements OnInit {
     tools!: ToolItem[];
 
     fmGroup: FormGroup;
-    name: FormControl = new FormControl("");
-    link: FormControl = new FormControl("");
-    description: FormControl = new FormControl("");
-    tags: FormControl = new FormControl("");
+
+    title: FormControl = new FormControl("", [Validators.required]);
+    link: FormControl = new FormControl("", []);
+    description: FormControl = new FormControl("", []);
+    tags: FormControl = new FormControl("", []);
 
 
 
@@ -28,21 +29,18 @@ export class AppComponent implements OnInit {
         private toolService: ToolService,
         private formBuilder: FormBuilder
     ) {
-        this.createForm;
-    }
-
-    createForm() {
-        this.fmGroup = this.formBuilder.group({
-            'name': [null],
-            'link': [null],
-            'description': [null],
-            'tags': [null]
+            this.fmGroup = this.formBuilder.group({
+            title: this.title,
+            link: this.link,
+            description: this.description,
+            tags: this.tags,
         });
     }
 
     ngOnInit() {
         this.titleService.setTitle(`${PAGE_TITLE}`);
         this.loadTools();
+        this.onSend();
     }
 
     loadTools() {
@@ -50,14 +48,15 @@ export class AppComponent implements OnInit {
             .subscribe(result => this.tools = result)
     }
     onSend() {
-        if (this.fmGroup.invalid)
-            return;
-        const { name, link, description, tags } = this.fmGroup.value;
-        this.toolService.send(name, link, description, tags)
-            .subscribe(
-                result => {
-                    this.fmGroup.reset();
-                },
-            );
+        if (this.fmGroup.invalid) {
+            // this.fmGroup.disable();
+            var formData: any = new FormData();
+            formData.append("title", this.fmGroup.get('title').value);
+            formData.append("link", this.fmGroup.get('link').value);
+            formData.append("description", this.fmGroup.get('description').value);
+            formData.append("tags", this.fmGroup.get('tags').value);
+
+        }
+
     }
 }

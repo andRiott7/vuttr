@@ -18,9 +18,9 @@ export class ToolService extends BaseService {
         return this.http.get<any>(`${URL_API}/tools`)
             .pipe(catchError(this.handleError));
     }
-    sendTools(name: string, link: string, description: string, tags: string): Observable<ToolItem[]> {
+    sendTools(title: string, link: string, description: string, tags: string): Observable<ToolItem[]> {
         const json = {
-            name: name,
+            title: title,
             link: link,
             description: description,
             tags: tags
