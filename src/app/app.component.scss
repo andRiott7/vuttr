@@ -1,0 +1,71 @@
+@import "./../assets/scss/variables";
+
+header {
+    .main-title {
+        font-size: 2.625rem !important;
+        font-weight: bolder;
+    }
+    .title {
+        font-size: 1.875rem;
+    }
+}
+
+main {
+    .search-row {
+        .search-bar {
+            input {
+                height: 3rem;
+                width: 17.175rem;
+                border: $solid-rule;
+                border-radius: $radius;
+                // background: $color-bg-secondary url('./../assets/img/icon_plus.svg') left center no-repeat;
+
+            }
+        }
+        .btn-add {
+            background-color: $color-quaternary;
+            height: 3rem;
+            color: $color-terciary;
+            border-radius: $radius;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.125rem 2rem;
+            span {
+                font-size: 1.5rem;
+                margin-right: 0.75rem;
+            }
+
+        }
+    }
+
+    .tool-items {
+        .item-card {
+            border: $solid-rule;
+            border-radius: $radius;
+            padding: 2rem;
+            background-color: $color-terciary;
+            box-shadow: $shadow;
+        }
+        .tool-title {
+            font-size: 1.875rem;
+            color: $color-quaternary;
+            border-bottom: 1px solid $color-quaternary;
+        }
+        .btn-remove {
+            span {
+                font-size: 1.25rem;
+                margin-right: 0.5rem;
+            }
+            &:hover {
+                color: $color-quaternary;
+            }
+        }
+        .tool-tags {
+            span {
+                margin-right: 0.75rem;
+            }
+        }
+    }
+
+}

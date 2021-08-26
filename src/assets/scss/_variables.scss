@@ -1,0 +1,51 @@
+// Descriptive Colors
+$black: #080808;
+$dark-white: #ebeaed;
+$white: #ffffff;
+//Blue Theme Color
+$blue: #365DF0;
+$dark-blue: #2F55CC;
+$darker-blue: #244AA8;
+$lighter-blue: #B9C6FA;
+// Ink Theme Color
+$ink: #170c3a;
+$light-ink: #8f8f9b;
+$lighter-ink: #b1abd9;
+$lightest-ink: #c7C4cd;
+// Functional Colors
+$color-primary: $ink;
+$color-secondary: $dark-white;
+$color-terciary: $white;
+$color-quaternary: $blue;
+// Backgrounds
+$color-bg-primary: $dark-white;
+$color-bg-secondary: $color-terciary;
+// Text
+$color-text: $color-primary;
+// Borders
+$solid-rule: 1px solid $color-secondary;
+$link-rule: 1px solid $color-quaternary;
+$radius: 5px;
+$shadow: 0px 5px 7px rgba($black, 0.2);
+// Font Family
+$font-stack-primary: "Source Sans Pro", Helvetica, Arial, sans-serif;
+// Font Size
+$font-regular: 400;
+$font-semibold: 600;
+$font-bold: 800;
+// Letter Spacings
+$space-xxs: 0.32px;
+$space-xs: 0.36px;
+$space-sm: 0.4px;
+$space-md: 0.48px;
+$space-lg: 0.52px;
+$space-xl: 0.6px;
+$space-xxl: 0.72px;
+$space-3xl: 0.84px;
+// Breakpoints
+$xs: 480px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1920px;
