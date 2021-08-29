@@ -18,24 +18,10 @@ main {
                 width: 17.175rem;
                 border: $solid-rule;
                 border-radius: $radius;
-                // background: $color-bg-secondary url('./../assets/img/icon_plus.svg') left center no-repeat;
-
+                background: $color-bg-secondary url('./../assets/img/icon_search.png') left center no-repeat;
             }
         }
         .btn-add {
-            background-color: $color-quaternary;
-            height: 3rem;
-            color: $color-terciary;
-            border-radius: $radius;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.125rem 2rem;
-            span {
-                font-size: 1.5rem;
-                margin-right: 0.75rem;
-            }
-
         }
     }
 
@@ -49,8 +35,8 @@ main {
         }
         .tool-title {
             font-size: 1.875rem;
-            color: $color-quaternary;
-            border-bottom: 1px solid $color-quaternary;
+            color: $color-neutral;
+            border-bottom: 1px solid $color-neutral;
         }
         .btn-remove {
             span {
@@ -58,7 +44,7 @@ main {
                 margin-right: 0.5rem;
             }
             &:hover {
-                color: $color-quaternary;
+                color: $color-danger;
             }
         }
         .tool-tags {

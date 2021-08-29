@@ -27,83 +27,69 @@
             </div>
             <div class="col-6 d-flex flex-wrap justify-content-end">
                 <!--Add-Button-->
-                <button class="btn-add" type="button" data-toggle="modal" data-target="#newTool">
+                <button class="btn btn-neutral" type="button" data-toggle="modal" data-target="#newTool">
                     <span>+</span> Add
                 </button>
             </div>
         </div>
-        <!--Add-items-modal-->
         <div class="new-tool modal fade" id="newTool" tabindex="-1" role="dialog" aria-labelledby="newTool"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content py-5 px-4">
-                    <div class="title mb-4">
-                        <h5> + Add new tool</h5>
-                    </div>
-                    <form (ngSubmit)="onSend()" [formGroup]="fmGroup" method="POST" class="d-flex flex-column flex-wrap align-items-center">
-                        <div class="form-group">
-                            <label for=""> Tool Name </label>
-                            <input [formControl]="title"  type="text" class="form-control" placeholder="Tool name">
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Tool Link </label>
-                            <input [formControl]="link"  type="text" class="form-control" placeholder="link url">
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Tool Description </label>
-                            <input [formControl]="description" type="text" class="form-control" placeholder="Description">
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Tags </label>
-                            <input [formControl]="tags" type="text" class="form-control" placeholder="Type to search..">
-                        </div>
-                        <button class="btn-add" class="form-control" type="button">
-                            Add tool
-                        </button>
-                    </form>
+                    <app-create-tool></app-create-tool>
                 </div>
             </div>
         </div>
         <!--Tool-Items-->
-        <div class="tool-items row px-3 pb-5 mt-4">
+        <div class="tool-items row px-3 pb-5 mt-4" *ngIf="tools">
             <!--Item-->
             <div class="item-card col-12 mt-4" *ngFor="let tool of tools">
                 <div class="d-flex flex-row flex-wrap justify-content-between">
                     <a href="{{tool.link}}" target="_blank">
                         <h3 class="tool-title"> {{ tool.title }} </h3>
                     </a>
-                    <button class="btn-remove" role="button" data-toggle="modal" data-target="#removeTool" >
+                    <button class="btn-remove" role="button" data-toggle="modal" data-target="#removeTool"
+                        (click)="removeTool()">
                         <span> x </span> Remove
                     </button>
+                    <!--Remove-item-modal-->
+                    <div class="remove-tool modal fade" id="removeTool" tabindex="-1" role="dialog"
+                        aria-labelledby="removeTool" aria-hidden="true">
+                        <button class="btn-add" class="form-control" type="button">
+                            Add
+                        </button>
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content py-5 px-4">
+                                <div class="title mb-3">
+                                    <h5> Remove tool</h5>
+                                </div>
+                                <div class="text text-left mb-4 py-4">
+                                    Are you sure you want to remove {{ tool.title }} ?
+                                </div>
+                                <div class="text-right d-flex flex-row justify-content-lg-end">
+                                    <button class="btn-neutral btn  mr-3" type="button">
+                                        Cancel
+                                    </button>
+                                    <button class="btn-danger btn" type="button">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tool-description py-4">
                     {{ tool.description }}
+                </div>
+                <div class="d-flex flex-row flex-wrap">
+                    <div class="tool-tags" *ngIf="tool.tags">
+                        {{ '#' + tool.tags }}
+                    </div>
                 </div>
                 <div class="d-flex flex-row flex-wrap" *ngFor="let tag of tool.tags">
                     <div class="tool-tags">
                         <!-- <span class="mr-4"> {{'#'+tags.tag + tool.tags}}</span> -->
                         {{ '#' + tag.tags }}
-                    </div>
-                </div>
-            </div>
-            <!--Remove-item-modal-->
-            <div class="remove-tool modal fade" id="removeTool" tabindex="-1" role="dialog" aria-labelledby="removeTool"
-                aria-hidden="true"> class="btn-add" class="form-control" type="button">
-                Add
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content py-5 px-4">
-                        <div class="title mb-3">
-                            <h5> x Remove tool</h5>
-                        </div>
-                        <form  class="d-flex flex-column flex-wrap align-items-center">
-                            <div class="form-group">
-                                <label for=""> Tool Name </label>
-                                <input type="text" class="form-control" placeholder="Type to search..">
-                            </div>
-                            <button class="btn-add" class="form-control" type="button">
-                                Remove
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>

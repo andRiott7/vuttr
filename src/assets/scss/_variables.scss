@@ -12,11 +12,21 @@ $ink: #170c3a;
 $light-ink: #8f8f9b;
 $lighter-ink: #b1abd9;
 $lightest-ink: #c7C4cd;
+// Red Theme Color
+$red: #F95E5A;
+$dark-red: #CC4C4C;
+$darker-red: #A53F3F;
+// Green Theme Color
+$green: #0DCB7D;
+$dark-green: #10B26C;
+$darker-green: #10B26C;
 // Functional Colors
 $color-primary: $ink;
 $color-secondary: $dark-white;
 $color-terciary: $white;
-$color-quaternary: $blue;
+$color-neutral: $blue;
+$color-success: $green;
+$color-danger: $red;
 // Backgrounds
 $color-bg-primary: $dark-white;
 $color-bg-secondary: $color-terciary;
@@ -24,7 +34,7 @@ $color-bg-secondary: $color-terciary;
 $color-text: $color-primary;
 // Borders
 $solid-rule: 1px solid $color-secondary;
-$link-rule: 1px solid $color-quaternary;
+$link-rule: 1px solid $color-neutral;
 $radius: 5px;
 $shadow: 0px 5px 7px rgba($black, 0.2);
 // Font Family
@@ -49,3 +59,5 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1920px;
+
+

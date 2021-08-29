@@ -10,6 +10,22 @@ body {
     font-family: $font-stack-primary !important;
     color: $color-text !important;
 }
+/*Containers*/
+.container {
+    max-width: 98%;
+    @media (min-width: $xs) {
+        max-width: 94%;
+    }
+    @media (min-width: $lg) {
+        max-width: 85%;
+    }
+    @media (min-width: $xl) {
+        max-width: 58%;
+    }
+    @media (min-width: $xxl) {
+        max-width: 50%;
+    }
+}
 /*Buttons*/
 a,
 button {
@@ -25,6 +41,39 @@ button {
     }
 }
 
+.btn {
+    height: 3rem;
+    color: $color-terciary;
+    border-radius: $radius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.125rem 2rem;
+    span {
+        font-size: 1.5rem;
+        margin-right: 0.75rem;
+    }
+    &.btn-neutral {
+        background-color: $color-neutral;
+        &:hover {
+            color: $color-terciary;
+            background-color: $dark-blue;
+        }
+        &:focus {
+            background-color: $darker-blue;
+        }
+    }
+
+    &.btn-danger {
+        background-color: $color-danger;
+        &:hover {
+            background-color: $dark-red;
+        }
+        &:focus {
+            background-color: $darker-red;
+        }
+    }
+}
 
 /*Containers*/
 .container {
@@ -42,4 +91,3 @@ button {
         max-width: 55%;
     }
 }
-

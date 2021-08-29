@@ -5,10 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolService } from './services/tool.service';
 import { BaseService } from './services/base.service';
+import { CreateToolComponent } from './components/create-tool/create-tool.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateToolComponent,
   ],
   imports: [
     BrowserModule,

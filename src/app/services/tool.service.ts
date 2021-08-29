@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { BaseService } from './base.service';
@@ -10,23 +10,29 @@ import { URL_API } from '../app.api';
     providedIn: 'root'
 })
 export class ToolService extends BaseService {
+
+    httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+    }
+
     constructor(private http: HttpClient) {
         super()
     }
 
-    getTools(): Observable<ToolItem[]> {
-        return this.http.get<any>(`${URL_API}/tools`)
+    newTools(request): Observable<ToolItem> {
+        return this.http.post<ToolItem>(`${URL_API}/tools`, request, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
-    sendTools(title: string, link: string, description: string, tags: string): Observable<ToolItem[]> {
-        const json = {
-            title: title,
-            link: link,
-            description: description,
-            tags: tags
-        };
 
-        return this.http.post<any>(`${URL_API}/tools`, JSON.stringify(json))
+    deleteTools(id: any): Observable<ToolItem> {
+        return this.http.delete<any>(`${URL_API}/tools/${id}`, this.httpOptions)
+            .pipe(catchError(this.handleError));
+    }
+
+    getTools(): Observable<ToolItem[]> {
+        return this.http.get<any>(`${URL_API}/tools`)
             .pipe(catchError(this.handleError));
     }
 
