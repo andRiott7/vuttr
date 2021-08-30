@@ -11,10 +11,11 @@ import { ToolService } from '../../services/tool.service';
 export class CreateToolComponent implements OnInit {
     // fmGroup: FormGroup;
 
-    request:any = {
+    request: any = {
+        id: '',
         title: '',
-        description: '',
         link: '',
+        description: '',
         tags: ['']
     }
     response: any;
@@ -31,7 +32,6 @@ export class CreateToolComponent implements OnInit {
         //     link: [''],
         //     tags: [''],
         //   })
-          this.onSave();
     }
     onSave() {
         this.toolService.newTools(this.request)

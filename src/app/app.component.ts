@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
     }
 
     loadTools() {
-
         this.toolService.getTools()
             .subscribe(result => this.tools = result)
 

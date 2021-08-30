@@ -75,19 +75,21 @@ button {
     }
 }
 
-/*Containers*/
-.container {
-    max-width: 98%;
-    @media (min-width: $xs) {
-        max-width: 94%;
-    }
-    @media (min-width: $lg) {
-        max-width: 85%;
-    }
-    @media (min-width: $xl) {
-        max-width: 60%;
-    }
-    @media (min-width: $xxl) {
-        max-width: 55%;
+/*Inputs*/
+.input {
+    height: 3rem;
+    border: $solid-rule;
+    border-radius: $radius;
+}
+
+/*Title*/
+.title-modal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3rem;
+    img {
+        max-width: 2rem;
+        margin-right: 0.75rem;
     }
 }

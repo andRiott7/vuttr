@@ -1,25 +1,29 @@
 <!--Add-items-modal-->
-<div class="title mb-4">
-    <h5> + Add new tool</h5>
+<div class="title-modal">
+    <img class="img-fluid" src="./../../../assets/img/icon_add.png" alt="Icon Add">
+    <h5 class="pt-1">Add new tool</h5>
 </div>
 <div class="d-flex flex-column flex-wrap align-items-center">
-    <div class="form-group">
-        <label for=""> Tool Name </label>
-        <input type="text" class="form-control" placeholder="Tool name" name="title" [(ngModel)]="request.title" >
+    <div class="form-group mb-3">
+        <label for="title"> Tool Name </label>
+        <input type="text" class="input form-control" placeholder="type the tool title.." name="title" [(ngModel)]="request.title">
     </div>
-    <div class="form-group">
-        <label for=""> Tool Link </label>
-        <input type="text" class="form-control" placeholder="link url" name="link" [(ngModel)]="request.link"  >
+    <div class="form-group mb-3">
+        <label for="link"> Tool Link </label>
+        <input type="text" class="input  form-control" placeholder="place the link url.." name="link" [(ngModel)]="request.link">
     </div>
-    <div class="form-group">
-        <label for=""> Tool Description </label>
-        <input type="text" class="form-control" placeholder="Description" name="description" [(ngModel)]="request.description"  >
+    <div class="form-group mb-3">
+        <label for="description"> Tool Description </label>
+        <input type="text" class="input form-control" placeholder="type a description.." name="description"
+            [(ngModel)]="request.description">
     </div>
-    <div class="form-group">
-        <label for=""> Tags </label>
-        <input type="text" class="form-control" placeholder="Type to search.." name="tags" [(ngModel)]="request.tags"  >
+    <div class="form-group mb-3">
+        <label for="tags"> Tags </label>
+        <input type="text" class="input form-control" placeholder="type tags separately.." name="tags" [(ngModel)]="request.tags">
     </div>
-    <button class="btn-add" class="form-control" type="button" (click)="onSave()">
-        Add tool
-    </button>
+    <div class="d-flex flex-row justify-content-end w-100 mt-4">
+        <button class="btn btn-neutral" type="button" (click)="onSave()">
+            Add tool
+        </button>
+    </div>
 </div>

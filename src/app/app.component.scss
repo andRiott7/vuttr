@@ -13,15 +13,12 @@ header {
 main {
     .search-row {
         .search-bar {
-            input {
-                height: 3rem;
+            .input {
                 width: 17.175rem;
-                border: $solid-rule;
-                border-radius: $radius;
-                background: $color-bg-secondary url('./../assets/img/icon_search.png') left center no-repeat;
+                padding-left: 3.15rem;
+                padding-right: 0.5rem;
+                background: $color-bg-secondary url('./../assets/img/icon_search.png') left 1rem center no-repeat;
             }
-        }
-        .btn-add {
         }
     }
 

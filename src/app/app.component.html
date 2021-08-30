@@ -17,9 +17,9 @@
                 <!--Search-Bar-->
                 <form class="d-flex flex-row flex-wrap align-items-center">
                     <div class="search-bar">
-                        <input type="search" placeholder="Type to search..">
+                        <input class="input" type="search" placeholder="Type to search..">
                     </div>
-                    <div class="tags-checkbox ml-4">
+                    <div class="tags-checkbox my-3 ml-4">
                         <input type="checkbox">
                         <label class="ml-2" for="checkbox"> Search in tags only </label>
                     </div>
@@ -55,22 +55,20 @@
                     <!--Remove-item-modal-->
                     <div class="remove-tool modal fade" id="removeTool" tabindex="-1" role="dialog"
                         aria-labelledby="removeTool" aria-hidden="true">
-                        <button class="btn-add" class="form-control" type="button">
-                            Add
-                        </button>
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content py-5 px-4">
-                                <div class="title mb-3">
-                                    <h5> Remove tool</h5>
+                                <div class="title-modal">
+                                    <img class="img-fluid mr-2" src="./../../../assets/img/icon_close.png" alt="Icon Add">
+                                    <h5 class="pt-1">Remove tool</h5>
                                 </div>
-                                <div class="text text-left mb-4 py-4">
+                                <div class="text text-left mb-5">
                                     Are you sure you want to remove {{ tool.title }} ?
                                 </div>
                                 <div class="text-right d-flex flex-row justify-content-lg-end">
                                     <button class="btn-neutral btn  mr-3" type="button">
                                         Cancel
                                     </button>
-                                    <button class="btn-danger btn" type="button">
+                                    <button class="btn-danger btn" type="button" (click)="removeTool()" >
                                         Remove
                                     </button>
                                 </div>
@@ -82,14 +80,8 @@
                     {{ tool.description }}
                 </div>
                 <div class="d-flex flex-row flex-wrap">
-                    <div class="tool-tags" *ngIf="tool.tags">
-                        {{ '#' + tool.tags }}
-                    </div>
-                </div>
-                <div class="d-flex flex-row flex-wrap" *ngFor="let tag of tool.tags">
                     <div class="tool-tags">
-                        <!-- <span class="mr-4"> {{'#'+tags.tag + tool.tags}}</span> -->
-                        {{ '#' + tag.tags }}
+                        {{ tool.tags }}
                     </div>
                 </div>
             </div>
