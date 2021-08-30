@@ -14,7 +14,7 @@ import { PAGE_TITLE } from 'src/globals';
 
 export class AppComponent implements OnInit {
     tools!: ToolItem[];
-    currentTool = null;
+    currentTool: ToolItem;
     //fmGroup: FormGroup;
     // title: FormControl = new FormControl("", [Validators.required]);
     // link: FormControl = new FormControl("", []);
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     constructor(
         private titleService: Title,
         private toolService: ToolService,
-        private formBuilder: FormBuilder
+        // private formBuilder: FormBuilder
     ) {
 
     }
@@ -35,10 +35,9 @@ export class AppComponent implements OnInit {
     }
 
     removeTool(id: any) {
-        this.toolService.deleteTools(id)
+        this.toolService.deleteTools(this.currentTool.id)
             .subscribe(response => {
-               this.tools
-               console.log(response)
+               console.log(response);
                this.loadTools();
             });
         // this.toolService.deleteTools(id)
