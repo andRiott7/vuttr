@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
     tools!: ToolItem[];
     currentTool = null;
     //fmGroup: FormGroup;
-
     // title: FormControl = new FormControl("", [Validators.required]);
     // link: FormControl = new FormControl("", []);
     // description: FormControl = new FormControl("", []);
@@ -36,8 +35,15 @@ export class AppComponent implements OnInit {
     }
 
     removeTool(id: any) {
-        this.toolService.deleteTools(this.currentTool.id)
-            .subscribe()
+        this.toolService.deleteTools(id)
+            .subscribe(response => {
+               this.tools
+               console.log(response)
+               this.loadTools();
+            });
+        // this.toolService.deleteTools(id)
+        // .subscribe(res => this.tools['id'] = res)
+        // this.loadTools();
     }
 
     loadTools() {

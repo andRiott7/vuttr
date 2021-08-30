@@ -3,3 +3,10 @@
 .form-group {
     width: 100%;
 }
+.form-control {
+    background-color: $color-bg-primary;
+
+    &:hover, &:focus {
+        border: 1px solid $lightest-ink;
+    }
+}

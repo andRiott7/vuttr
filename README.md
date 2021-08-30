@@ -5,9 +5,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 The repository width the bundle to start the project can be find [here].
 
 [here]: https://github.com/andRiott7/vuttr
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Steps to start
 
