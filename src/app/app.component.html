@@ -52,8 +52,8 @@
                         <span> x </span> Remove
                     </button>
                     <!--Remove-item-modal-->
-                    <div class="remove-tool modal fade" id="removeTool" tabindex="-1" role="dialog"
-                        aria-labelledby="removeTool" aria-hidden="true">
+                    <div class="remove-tool modal fade" id="removeTool" tabindex="-1" role="dialog" aria-labelledby="removeTool" aria-hidden="true"
+                        (click)="modalOpened ? toggleModal() : false">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content py-5 px-4">
                                 <div class="title-modal">
@@ -87,7 +87,7 @@
         </div>
     </div>
 </main>
-<!-- Footer -->
+<!-- Footer -->Notion
 <footer class="footer">
     <div class="d-flex flex-row align-items-center justify-content-center pt-3 pb-5">
         Developed by <a href="https://github.com/andRiott7" target="_blank" ><img class="img-fluid mx-2" src="./../../../assets/img/andriot.svg" alt="Icon Add"></a>

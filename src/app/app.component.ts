@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ToolService } from './services/tool.service';
 import { ToolItem } from './models/tools';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { PAGE_TITLE } from 'src/globals';
 
+declare let $: any;
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -14,40 +14,67 @@ import { PAGE_TITLE } from 'src/globals';
 
 export class AppComponent implements OnInit {
     tools!: ToolItem[];
-    //fmGroup: FormGroup;
-    // title: FormControl = new FormControl("", [Validators.required]);
-    // link: FormControl = new FormControl("", []);
-    // description: FormControl = new FormControl("", []);
-    // tags: FormControl = new FormControl("", []);
 
+    modalOpened: Boolean = false
+
+    isLoading: boolean = false;
+    term: string = '';
+    items: ToolItem[] = [];
+    currentTool: any = {
+        // id: '',
+        title: '',
+        link: '',
+        description: '',
+        tags: ''
+
+    };
     constructor(
         private titleService: Title,
         private toolService: ToolService,
-        private formBuilder: FormBuilder
-    ) {
-
-    }
+    ) { }
 
     ngOnInit() {
         this.titleService.setTitle(`${PAGE_TITLE}`);
         this.loadTools();
+        this.loadItems();
     }
 
-    removeTool(id: any) {
-        this.toolService.deleteTools(this)
+    // CRUD methods
+    removeTool() {
+        this.toolService.deleteTools(this.currentTool.id)
             .subscribe(response => {
                console.log(response);
-               this.loadTools();
+               error => { console.log(error)}
             });
         // this.toolService.deleteTools(id)
         // .subscribe(res => this.tools['id'] = res)
-        // this.loadTools();
+        this.loadTools();
+    }
+    decline() {
+        // this.modalOpened = !this.modalOpened;
+        if (this.modalOpened) {
+            setTimeout(() => {
+                $(".btn").removeClass('show');
+            }, 400);
+        }
+
+    }
+    toggleModal() {
+
     }
 
     loadTools() {
         this.toolService.getTools()
             .subscribe(result => this.tools = result)
-
     }
+    // Search Filter
+    loadItems() {
+        this.isLoading = true;
+        this.toolService.getSearch(this.term)
+          .subscribe((data: any) => {
+            this.items = data.rows;
+            this.isLoading = false;
+          });
+      }
 
 }

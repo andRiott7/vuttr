@@ -1,9 +1,9 @@
+import { ToolItem } from './../models/tools';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, take } from 'rxjs/operators';
+import { catchError, take, tap } from 'rxjs/operators';
 import { BaseService } from './base.service';
-import { ToolItem } from '../models/tools';
 import { URL_API } from '../app.api';
 
 @Injectable({
@@ -32,11 +32,24 @@ export class ToolService extends BaseService {
     }
 
     getTools(): Observable<ToolItem[]> {
-        return this.http.get<any>(`${URL_API}`)
-            .pipe(catchError(this.handleError));
+        return this.http.get<ToolItem[]>(`${URL_API}`)
+            .pipe(
+                tap(console.log),
+                catchError(this.handleError));
     }
 
-    getSearch() {}
 
+    getSearch(
+        searchTerm: string,
+        filterTags?: string,
+      ): Observable<ToolItem[]> {
+        let url = `${URL_API}/?q=:busca=${searchTerm}`;
+        let filters = '';
+
+        if (filterTags) {
+            url = `${URL_API}/search/${filterTags}/?tags_like=:busca=${searchTerm}`
+        }
+        return this.http.get<any>(`${url}${filters}`).pipe(catchError(this.handleError))
+      }
 }
 

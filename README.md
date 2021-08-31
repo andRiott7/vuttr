@@ -1,5 +1,8 @@
 # VUTTR - Very Useful Tools to Remember
 
+
+The application is a simple repository to manage tools with their respective names, links, descriptions and tags.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
 The repository width the bundle to start the project can be find [here].

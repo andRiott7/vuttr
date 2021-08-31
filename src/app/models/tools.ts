@@ -1,7 +1,7 @@
 export interface ToolItem {
-    id?: number,
+    id: any,
     title: string,
-    link?: string,
+    link: string,
     description: string,
     tags: string[]
 }
