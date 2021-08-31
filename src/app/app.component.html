@@ -64,7 +64,7 @@
                                     Are you sure you want to remove {{ tool.title }} ?
                                 </div>
                                 <div class="text-right d-flex flex-row justify-content-lg-end">
-                                    <button class="btn-neutral btn  mr-3" type="button">
+                                    <button class="btn-neutral btn  mr-3" type="button" (click)="decline()" >
                                         Cancel
                                     </button>
                                     <button class="btn-danger btn" type="button" (click)="removeTool()" >
